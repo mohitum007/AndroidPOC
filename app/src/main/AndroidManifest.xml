@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.FeedsActivity"/>
+        <activity android:name=".view.FeedsActivity"
+            android:configChanges="orientation|screenSize"/>
     </application>
 
 </manifest>

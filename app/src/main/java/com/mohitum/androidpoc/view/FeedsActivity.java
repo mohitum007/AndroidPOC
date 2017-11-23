@@ -39,6 +39,8 @@ public class FeedsActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     private ProgressDialog progressDialog;
 
+    private int dataSize = 0;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +98,7 @@ public class FeedsActivity extends AppCompatActivity implements SwipeRefreshLayo
                 if(actionBar!=null && body.getTitle() != null){
                     actionBar.setTitle(body.getTitle());
                 }
+                dataSize = body.getFeeds().size();
                 FeedsAdapter navigationDrawerAdapter = new FeedsAdapter(FeedsActivity.this, body.getFeeds());
                 recVwFeed.setAdapter(navigationDrawerAdapter);
                 recVwFeed.setLayoutManager(new LinearLayoutManager(FeedsActivity.this));
@@ -142,5 +145,9 @@ public class FeedsActivity extends AppCompatActivity implements SwipeRefreshLayo
             // dismiss the dialog
             dialog.dismiss();
         }
+    }
+
+    public int getDataSize() {
+        return dataSize;
     }
 }
