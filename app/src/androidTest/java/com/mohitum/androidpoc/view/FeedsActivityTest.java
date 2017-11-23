@@ -1,8 +1,6 @@
 package com.mohitum.androidpoc.view;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -10,12 +8,9 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.RecyclerView;
 
 import com.mohitum.androidpoc.R;
-import com.mohitum.androidpoc.api.ApiClient;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import retrofit2.Retrofit;
 
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;

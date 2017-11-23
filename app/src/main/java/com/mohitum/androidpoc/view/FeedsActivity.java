@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mohitum.androidpoc.R;
-import com.mohitum.androidpoc.api.ApiClient;
-import com.mohitum.androidpoc.api.IApiInterface;
+import com.mohitum.androidpoc.network.ApiClient;
+import com.mohitum.androidpoc.network.IApiInterface;
 import com.mohitum.androidpoc.model.FeedResponse;
 import com.mohitum.androidpoc.utils.Utils;
 
@@ -149,5 +149,13 @@ public class FeedsActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     public int getDataSize() {
         return dataSize;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        swipeRefreshLayoutFeeds.setOnRefreshListener(null);
+        dismissProgressDialog(progressDialog);
+        progressDialog = null;
     }
 }

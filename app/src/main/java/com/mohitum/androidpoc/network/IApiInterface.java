@@ -1,4 +1,4 @@
-package com.mohitum.androidpoc.api;
+package com.mohitum.androidpoc.network;
 
 import com.mohitum.androidpoc.model.FeedResponse;
 

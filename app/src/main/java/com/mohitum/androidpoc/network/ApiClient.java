@@ -1,4 +1,4 @@
-package com.mohitum.androidpoc.api;
+package com.mohitum.androidpoc.network;
 
 import java.util.concurrent.TimeUnit;
 
