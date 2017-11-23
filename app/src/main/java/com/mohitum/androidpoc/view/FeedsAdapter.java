@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
  *
  * @version 1.0
  */
-public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.FeedViewHolder> {
+class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.FeedViewHolder> {
 
     /**
      * List of adapter data
@@ -47,7 +47,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.FeedViewHold
      * @param activityContext Activity calling context
      * @param feeds feeds list data
      */
-    public FeedsAdapter(Activity activityContext, List<Feed> feeds) {
+    FeedsAdapter(Activity activityContext, List<Feed> feeds) {
         inflater = LayoutInflater.from(activityContext);
         this.activityContext = activityContext;
         this.feeds = feeds;
@@ -62,9 +62,14 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.FeedViewHold
     @Override
     public void onBindViewHolder(FeedViewHolder holder, int position) {
         Feed feed = feeds.get(position);
-        holder.txtVwFeedTitle.setText(feed.getTitle());
-        holder.txtVwFeedDescription.setText(feed.getDescription());
-        Glide.with(activityContext).load(feed.getImageHref()).into(holder.imgVwFeed);
+        if(feed.getTitle()!=null)
+            holder.txtVwFeedTitle.setText(feed.getTitle());
+
+        if(feed.getImageHref()!=null)
+            Glide.with(activityContext).load(feed.getImageHref()).into(holder.imgVwFeed);
+
+        if(feed.getDescription()!=null)
+            holder.txtVwFeedDescription.setText(feed.getDescription());
     }
 
     @Override
